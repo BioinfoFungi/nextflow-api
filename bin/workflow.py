@@ -40,15 +40,15 @@ def run_workflow(workflow, work_dir, resume):
 
 	elif env.NXF_EXECUTOR == 'local':
 		args = [
-			'nextflow',
+			'nf',
 			'-log', os.path.join(workflow['output_dir'], 'nextflow.log'),
 			'run',
 			workflow['pipeline'],
 			'-ansi-log', 'false',
 			'-latest',
 			'-name', run_name,
-			'-profile', workflow['profiles'],
-			'-revision', workflow['revision']
+			'-profile', workflow['profiles']
+			# '-revision', workflow['revision']
 		]
 
 	elif env.NXF_EXECUTOR == 'pbspro':
@@ -60,8 +60,8 @@ def run_workflow(workflow, work_dir, resume):
 			'-ansi-log', 'false',
 			'-latest',
 			'-name', run_name,
-			'-profile', workflow['profiles'],
-			'-revision', workflow['revision']
+			'-profile', workflow['profiles']
+			# '-revision', workflow['revision']
 		]
 
 	# add params file if specified
