@@ -10,8 +10,8 @@ else
 fi
 
 # initialize environment
-source ${HOME}/anaconda3/etc/profile.d/conda.sh
-conda activate nextflow-api
+# source ${HOME}/anaconda3/etc/profile.d/conda.sh
+# conda activate nextflow-api
 
 # start mongodb server
 if [[ ${BACKEND} == "mongo" ]]; then

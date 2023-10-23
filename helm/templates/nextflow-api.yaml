@@ -59,7 +59,7 @@ spec:
           mountPath: "/etc/.kube"
         {{ end }}
         ports:
-        - containerPort: 8080
+        - containerPort: 8086
         lifecycle:
           preStop:
             exec:
@@ -96,8 +96,8 @@ spec:
   selector:
     app: nextflow-api-ip
   ports:
-  - port: 8080
-    targetPort: 8080
+  - port: 8086
+    targetPort: 8086
 ---
 {{ if .Values.LoadBalancer.Enabled }}
 apiVersion: v1
@@ -110,8 +110,8 @@ metadata:
     release: {{ .Release.Name }}
 spec:
   ports:
-  - port: 8080
-    targetPort: 8080
+  - port: 8086
+    targetPort: 8086
   type: LoadBalancer
   selector:
     app: nextflow-api
@@ -128,8 +128,8 @@ metadata:
     release: {{ .Release.Name }}
 spec:
   ports:
-  - port: 8080
-    targetPort: 8080
+  - port: 8086
+    targetPort: 8086
   selector:
     app: nextflow-api
 ---
@@ -148,7 +148,7 @@ spec:
       - path: /
         backend:
           serviceName: nextflow-api
-          servicePort: 8080
+          servicePort: 8086
 {{ end }}
 ---
 {{ if .Values.NodePorts.Enabled }}
@@ -162,7 +162,7 @@ spec:
   type: NodePort
   ports:  
   - name: nextflow-api
-    port: 8080
-    targetPort: 8080
+    port: 8086
+    targetPort: 8086
     nodePort: {{ .Values.NodePorts.NodePort }}
 {{ end }}

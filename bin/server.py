@@ -808,7 +808,7 @@ if __name__ == '__main__':
 	tornado.options.define('url-file', default='db.pkl', help='database file for file backend')
 	tornado.options.define('url-mongo', default='localhost', help='mongodb service url for mongo backend')
 	tornado.options.define('np', default=1, help='number of server processes')
-	tornado.options.define('port', default=8080)
+	tornado.options.define('port', default=8086)
 	tornado.options.parse_command_line()
 
 	# initialize auxiliary directories
